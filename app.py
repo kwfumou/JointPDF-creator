@@ -5,8 +5,8 @@ from flask import Flask, render_template, request, redirect, url_for
 from PDF_maker import generater_status
 
 app = Flask(__name__)
-# host='0.0.0.0'
-host = 'localhost'
+host='0.0.0.0'
+# host = 'localhost'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
 # db = SQLAlchemy(app)
 
@@ -34,8 +34,13 @@ def result():
         band_width = request.args.get('band_width')
         num_sample = request.args.get('num_sample')
         time_stamp = request.args.get('time_stamp')
+        generation_time = request.args.get('generation_time')
+        num_sample = request.args.get('num_sample')
+        response_time = request.args.get('response_time')
+        time_stamp_response = request.args.get('time_stamp_response')
         # print('title',title)
-        pdf_status.change_status(PDF_name,band_width,num_sample,time_stamp)
+        # print(PDF_name,band_width,num_sample,time_stamp)
+        pdf_status.change_status(PDF_name,band_width,num_sample,time_stamp,generation_time,response_time)
     return render_template('result.html')
 
 @app.route('/status')
@@ -49,5 +54,5 @@ def status():
 
 if __name__ == "__main__":
     # app.run(debug=True)
-    # app.run(debug=True, host=host, port=801)
-    app.run()
+    app.run(debug=True, host=host, port=801)
+    # app.run()

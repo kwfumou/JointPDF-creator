@@ -5,10 +5,13 @@ class generater_status:
     band_width = 0.
     num_sample = 0
     time_stamp = 0.1
+    generation_time = 0.
+    response_time = 0.
     PDF_list = {
         'bimodal',
         'laplace',
         'log',
+        'gamma'
     }
 
     def __init__(self):
@@ -29,6 +32,8 @@ class generater_status:
             get_width = self.band_width
             get_nSample = self.num_sample
             get_timeStamp = self.time_stamp
+            get_genTime = self.generation_time
+            get_resTime = self.response_time
 
             # clear
             self.PDF_name = 'none'
@@ -36,14 +41,16 @@ class generater_status:
             self.num_sample = 0
             self.time_stamp = 0.1
             self.task_flag = False
-            return [True,get_pdf,get_width,get_nSample,get_timeStamp]
+            return [True,get_pdf,get_width,get_nSample,get_timeStamp,get_genTime,get_resTime]
         else:
             return [self.task_flag,'none_test']
         
-    def change_status(self,pdf_name,band_width_,num_sample_,time_stamp_):
+    def change_status(self,pdf_name,band_width_,num_sample_,time_stamp_,generation_time_,response_time_):
         if pdf_name in self.PDF_list:
             self.PDF_name = pdf_name
             self.task_flag = True
             self.band_width = band_width_
             self.num_sample = num_sample_
             self.time_stamp = time_stamp_
+            self.generation_time = generation_time_
+            self.response_time = response_time_

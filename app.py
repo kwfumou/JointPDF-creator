@@ -38,9 +38,11 @@ def result():
         num_sample = request.args.get('num_sample')
         response_time = request.args.get('response_time')
         time_stamp_response = request.args.get('time_stamp_response')
+        div = request.args.get('div')
+        graph_range = request.args.get('graph_range')
         # print('title',title)
         # print(PDF_name,band_width,num_sample,time_stamp)
-        pdf_status.change_status(PDF_name,band_width,num_sample,time_stamp,generation_time,response_time)
+        pdf_status.change_status(PDF_name,band_width,num_sample,time_stamp,generation_time,response_time,div,graph_range)
     return render_template('result.html')
 
 @app.route('/status')

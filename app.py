@@ -40,9 +40,10 @@ def result():
         time_stamp_response = request.args.get('time_stamp_response')
         div = request.args.get('div')
         graph_range = request.args.get('graph_range')
+        time_stamp_response = request.args.get('time_stamp_response')
         # print('title',title)
         # print(PDF_name,band_width,num_sample,time_stamp)
-        pdf_status.change_status(PDF_name,band_width,num_sample,time_stamp,generation_time,response_time,div,graph_range)
+        pdf_status.change_status(PDF_name,band_width,num_sample,time_stamp,generation_time,response_time,div,graph_range,time_stamp_response)
     return render_template('result.html')
 
 @app.route('/status')
@@ -56,5 +57,5 @@ def status():
 
 if __name__ == "__main__":
     # app.run(debug=True)
-    app.run(debug=True, host=host, port=801)
-    # app.run()
+    # app.run(debug=True, host=host, port=801)
+    app.run()

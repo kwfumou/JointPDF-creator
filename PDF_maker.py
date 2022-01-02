@@ -9,6 +9,7 @@ class generater_status:
     response_time = 0.
     div = 10
     graph_range = 5.
+    time_stamp_response = 0.1
     PDF_list = {
         'bimodal',
         'laplace',
@@ -38,6 +39,7 @@ class generater_status:
             get_resTime = self.response_time
             get_div = self.div
             get_range = self.graph_range
+            get_timeStamp_res = self.time_stamp_response
 
             # clear
             self.PDF_name = 'none'
@@ -45,11 +47,11 @@ class generater_status:
             self.num_sample = 0
             self.time_stamp = 0.1
             self.task_flag = False
-            return [True,get_pdf,get_width,get_nSample,get_timeStamp,get_genTime,get_resTime,get_div,get_range]
+            return [True,get_pdf,get_width,get_nSample,get_timeStamp,get_genTime,get_resTime,get_div,get_range,get_timeStamp_res]
         else:
             return [self.task_flag,'none_test']
         
-    def change_status(self,pdf_name,band_width_,num_sample_,time_stamp_,generation_time_,response_time_,div_,graph_range_):
+    def change_status(self,pdf_name,band_width_,num_sample_,time_stamp_,generation_time_,response_time_,div_,graph_range_,time_stamp_response_):
         if pdf_name in self.PDF_list:
             self.PDF_name = pdf_name
             self.task_flag = True
@@ -60,3 +62,4 @@ class generater_status:
             self.response_time = response_time_
             self.div = div_
             self.graph_range = graph_range_
+            self.time_stamp_response = time_stamp_response_

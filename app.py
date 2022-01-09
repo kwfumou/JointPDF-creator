@@ -24,7 +24,14 @@ def index():
 
 @app.route('/create')
 def create():
+    # status_list = pdf_status.get_status_4Web()
+    # print(status_list)
     return render_template('create.html')
+
+@app.route('/status_list')
+def status_list():
+    status_list = pdf_status.get_status_4Web()
+    return render_template('status_list.html',st_list=status_list)
 
 @app.route('/result')
 def result():
@@ -43,8 +50,9 @@ def result():
         time_stamp_response = request.args.get('time_stamp_response')
         # print('title',title)
         # print(PDF_name,band_width,num_sample,time_stamp)
+        st_list = [PDF_name,band_width,num_sample,time_stamp,generation_time,response_time,div,graph_range,time_stamp_response]
         pdf_status.change_status(PDF_name,band_width,num_sample,time_stamp,generation_time,response_time,div,graph_range,time_stamp_response)
-    return render_template('result.html')
+    return render_template('result.html',st_list=st_list)
 
 @app.route('/status')
 def status():

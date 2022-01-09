@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2 class="m-4">結合分布作成</h2>
+<h3 class="m-4">結合分布作成</h2>
 <div class="form">
     <form class="m-4" action="/result" method='GET'>
         <div class="row mb-1">
@@ -76,7 +76,8 @@
             <input type="date" name="due" required>
         </div-->
         <a class="btn btn-outline-primary" href="/" role="button">Return</a>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Add to List</button>
+        <a class="btn btn-outline-primary" href="/status_list" role="button">Check List</a>
     </form>
 </div>
 
